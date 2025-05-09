@@ -4,6 +4,7 @@ import Employee from '../Employee/Employee'
 import { EmployeeType } from '../Employee/types'
 import Post from '../Post/Post'
 import { PostType } from '../Post/types'
+import Navbar from '../Layout/Navbar'
 
 interface DeferProps {
   employees: EmployeeType[]
@@ -16,6 +17,10 @@ export default function Defer({ employees, posts }: DeferProps) {
       <Head title="Our Team" />
 
       <div className="mx-auto md:w-6xl w-full px-8 pt-8">
+        <div className="mx-auto pb-8 justify-center items-center w-full text-center">
+          <Navbar />
+        </div>
+
         <div className="mb-4 text-xl">
           <p>Inertia's deferred props feature allows you to <strong>defer the loading of certain page data</strong> until after the initial page render.</p>
 
