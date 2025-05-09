@@ -1,5 +1,4 @@
-import { Head, Link } from '@inertiajs/react'
-import Post from './Post'
+import { Head, Link, WhenVisible } from '@inertiajs/react'
 import { PostType } from './types'
 
 interface ShowProps {
@@ -20,9 +19,9 @@ export default function Show({ post, flash }: ShowProps) {
             </p>
           )}
 
-          <h1 className="font-bold text-4xl">Post #{post.id}</h1>
+          <h1 className="font-bold text-4xl mb-5">{post.title?.toString()}</h1>
 
-          <Post post={post} />
+          <p>{post.body?.toString()}</p>
 
           <Link
             href={`/posts/${post.id}/edit`}
@@ -46,6 +45,18 @@ export default function Show({ post, flash }: ShowProps) {
               Destroy this post
             </Link>
           </div>
+
+          <h2 className="font-bold text-2xl mt-5 mb-2">Comments</h2>
+          <WhenVisible data="comments" fallback={<div>Loading comments...</div>}>
+            <div className="mt-5">
+              {post.comments?.map((comment) => (
+                <div key={comment.id} className="mb-5">
+                  <p className="text-xs">Comment #{comment.id}</p>
+                  <p>{comment.body?.toString()}</p>
+                </div>
+              ))}
+            </div>
+          </WhenVisible>
         </div>
       </div>
     </>

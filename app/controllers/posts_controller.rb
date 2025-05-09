@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   def show
     render inertia: "Post/Show", props: {
-      post: serialize_post(@post)
+      post: -> { serialize_post(@post) }
     }
   end
 

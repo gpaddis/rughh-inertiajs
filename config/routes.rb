@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   resources :comments
   resources :posts
-  get "demo/defer"
   resources :employees
+
+  get "demo/defer"
+  get "demo/load-when-visible"
 
   get "inertia-example", to: "inertia_example#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

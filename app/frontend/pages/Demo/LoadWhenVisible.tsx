@@ -1,4 +1,4 @@
-import { Deferred, Head } from '@inertiajs/react'
+import { Head, WhenVisible } from '@inertiajs/react'
 import { Fragment } from 'react'
 import Employee from '../Employee/Employee'
 import { EmployeeType } from '../Employee/types'
@@ -6,12 +6,12 @@ import Navbar from '../Layout/Navbar'
 import Post from '../Post/Post'
 import { PostType } from '../Post/types'
 
-interface DeferProps {
+interface LoadWhenVisibleProps {
   employees: EmployeeType[]
   posts: PostType[]
 }
 
-export default function Defer({ employees, posts }: DeferProps) {
+export default function LoadWhenVisible({ employees, posts }: LoadWhenVisibleProps) {
   return (
     <>
       <Head title="Our Team" />
@@ -22,9 +22,9 @@ export default function Defer({ employees, posts }: DeferProps) {
         </div>
 
         <div className="mb-4 text-xl">
-          <p>Inertia's deferred props feature allows you to <strong>defer the loading of certain page data</strong> until after the initial page render.</p>
+          <p className="mb-2">Inertia supports <strong>lazy loading data on scroll</strong> using the Intersection Observer API. It provides the WhenVisible component as a convenient way to load data when an element becomes visible in the viewport.</p>
 
-          <p>This can be useful for improving the perceived performance of your app by allowing the initial page render to happen as quickly as possible.</p>
+          <p className="mb-2">The WhenVisible component accepts a data prop that specifies the key of the prop to load. It also accepts a fallback prop that specifies a component to render while the data is loading. The WhenVisible component should wrap the component that depends on the data.</p>
         </div>
 
         <div className="flex justify-center items-center mb-12">
@@ -45,7 +45,7 @@ export default function Defer({ employees, posts }: DeferProps) {
           <h1 className="font-bold text-4xl">Our Blog</h1>
         </div>
 
-        <Deferred data="posts" fallback={<div className="text-xl text-center mb-10">Loading...</div>}>
+        <WhenVisible data="posts" buffer={500} fallback={<div className="text-xl text-center mb-10">Loading...</div>}>
           <div className="min-w-full">
             {posts?.map((post) => (
               <Fragment key={post.id}>
@@ -53,7 +53,7 @@ export default function Defer({ employees, posts }: DeferProps) {
               </Fragment>
             ))}
           </div>
-        </Deferred>
+        </WhenVisible>
       </div>
     </>
   )
