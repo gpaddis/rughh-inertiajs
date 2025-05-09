@@ -9,3 +9,6 @@
 #   end
 
 FactoryBot.create_list(:employee, 30)
+FactoryBot.create_list(:post, 30).each do |post|
+  FactoryBot.create_list(:comment, rand(1..20), post: post)
+end
