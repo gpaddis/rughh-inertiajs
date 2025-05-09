@@ -74,7 +74,7 @@ class EmployeesController < ApplicationController
 
     def serialize_employee(employee)
       employee.as_json(only: [
-        :id, :name, :role, :avatar_url
+        :id, :name, :role
       ])
     end
 end

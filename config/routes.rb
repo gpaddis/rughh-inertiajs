@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "demo/defer"
   resources :employees
 
   get "inertia-example", to: "inertia_example#index"
