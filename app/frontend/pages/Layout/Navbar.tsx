@@ -15,6 +15,12 @@ export default function Navbar() {
             Load when visible
           </Link>
         </li>
+        <li>&middot;</li>
+        <li>
+          <Link href="/demo/partial-reloads">
+            Partial reloads
+          </Link>
+        </li>
       </ul>
     </div>
   )

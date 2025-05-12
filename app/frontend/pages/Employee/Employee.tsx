@@ -18,6 +18,8 @@ export default function Employee({ employee }: EmployeeProps) {
           <img src={`https://i.pravatar.cc/150?u=${employee.id}`} alt="Avatar" className="w-12 h-12 rounded-full" />
         </p>
       </div>
+
+      <p className={`text-xs font-medium ${employee.status === 'active' ? 'text-green-500' : 'text-red-500'}`}>{employee.status}</p>
     </div>
   )
 }

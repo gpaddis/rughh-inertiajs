@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get "demo/defer"
   get "demo/load-when-visible"
+  get "demo/partial-reloads"
 
   get "inertia-example", to: "inertia_example#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

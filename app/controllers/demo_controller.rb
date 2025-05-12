@@ -15,6 +15,16 @@ class DemoController < ApplicationController
     }
   end
 
+  # Demonstrate partial reloads.
+  def partial_reloads
+    employees = params[:active] ? Employee.active.all : Employee.all
+
+    render inertia: "Demo/PartialReloads", props: {
+      current_user: -> { FactoryBot.build(:employee) },
+      employees: -> { employees.map { |employee| serialize_employee(employee) } }
+    }
+  end
+
   private
 
   def employees
@@ -22,12 +32,12 @@ class DemoController < ApplicationController
   end
 
   def posts
-    Post.all.map { |post| serialize_post(post) }
+    Post.all.includes(:comments).map { |post| serialize_post(post) }
   end
 
   def serialize_employee(employee)
     employee.as_json(only: [
-      :id, :name, :role
+      :id, :name, :role, :status
     ])
   end
 
