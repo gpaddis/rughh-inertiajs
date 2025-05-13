@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "demo/load-when-visible"
   get "demo/partial-reloads"
   get "demo/prefetch"
+  get "demo/merging-props"
 
   get "inertia-example", to: "inertia_example#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
