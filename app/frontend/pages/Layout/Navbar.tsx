@@ -5,6 +5,12 @@ export default function Navbar() {
     <div className="font-semibold text-lg">
       <ul className="flex items-center space-x-2">
         <li>
+          <Link href="/posts">
+            Form Helpers
+          </Link>
+        </li>
+        <li>&middot;</li>
+        <li>
           <Link href="/demo/defer">
             Defer
           </Link>

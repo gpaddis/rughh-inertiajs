@@ -7,4 +7,4 @@ export interface PostType {
   comments: CommentType[]
 }
 
-export type PostFormType = Omit<PostType, 'id'>
+export type PostFormType = Omit<PostType, 'id' | 'comments'>

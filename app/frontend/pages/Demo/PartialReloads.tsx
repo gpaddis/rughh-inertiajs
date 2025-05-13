@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 import Employee from '../Employee/Employee'
 import { EmployeeType } from '../Employee/types'
 import Navbar from '../Layout/Navbar'
+import Infobox from '../Layout/Infobox'
 
 interface PartialReloadsProps {
     current_user: EmployeeType
@@ -19,15 +20,19 @@ export default function PartialReloads({ current_user, employees }: PartialReloa
                     <Navbar />
                 </div>
 
-                <div className="mb-4 text-xl">
+                <Infobox>
                     <p className="mb-2">
                         When making visits to the same page you are already on, it's not always necessary to re-fetch all of the page's data from the server.
                         In fact, selecting only a subset of the data can be a helpful performance optimization if it's acceptable that some page data becomes stale.
                     </p>
-                    <p className="font-semibold">
+                    <p className="mb-2 font-semibold">
                         Inertia makes this possible via its "partial reload" feature.
                     </p>
-                </div>
+
+                    <p>
+                        Bonus: when using an Inertia link, you can preserve the scroll position using the <em>preserveScroll</em> prop.
+                    </p>
+                </Infobox>
 
                 <div className="text-right">
                     <p>Current User: <span className="font-semibold">{current_user.name}</span></p>
@@ -51,6 +56,7 @@ export default function PartialReloads({ current_user, employees }: PartialReloa
                         href="/demo/partial-reloads"
                         className="rounded-lg py-3 px-5 ml-2 bg-gray-200 hover:bg-gray-300 inline-block font-medium"
                         only={['employees']}
+                        preserveScroll
                     >
                         Show all employees
                     </Link>

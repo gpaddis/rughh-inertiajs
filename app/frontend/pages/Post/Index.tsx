@@ -2,6 +2,8 @@ import { Head, Link } from '@inertiajs/react'
 import { Fragment } from 'react'
 import Post from './Post'
 import { PostType } from './types'
+import Navbar from '../Layout/Navbar'
+import Infobox from '../Layout/Infobox'
 
 interface IndexProps {
   posts: PostType[]
@@ -12,12 +14,21 @@ export default function Index({ posts, flash }: IndexProps) {
   return (
     <>
       <Head title="Posts" />
-      <div className="mx-auto md:w-2/3 w-full px-8 pt-8">
+      <div className="mx-auto md:w-4xl lg:w-6xl w-full px-8 pt-8">
+        <div className="mx-auto pb-8 justify-center items-center w-full text-center">
+          <Navbar />
+        </div>
+
+        <Infobox>
+          <p>Since working with forms is so common, Inertia includes a <strong>form helper</strong> designed to help reduce the amount of boilerplate code needed for handling typical form submissions.</p>
+        </Infobox>
+
         {flash.notice && (
           <p className="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block">
             {flash.notice}
           </p>
         )}
+
         <div className="flex justify-between items-center">
           <h1 className="font-bold text-4xl">Posts</h1>
           <Link
