@@ -33,6 +33,12 @@ export default function Navbar() {
             Prefetch
           </Link>
         </li>
+        <li>&middot;</li>
+        <li>
+          <Link href="/demo/merging-props" className="hover:text-blue-600">
+            Merging props
+          </Link>
+        </li>
       </ul>
     </div>
   )

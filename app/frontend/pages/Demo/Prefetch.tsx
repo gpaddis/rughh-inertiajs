@@ -1,5 +1,4 @@
 import { Head, Link } from '@inertiajs/react'
-import Employee from '../Employee/Employee'
 import { EmployeeType } from '../Employee/types'
 import Navbar from '../Layout/Navbar'
 import Infobox from '../Layout/Infobox'

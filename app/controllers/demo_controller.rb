@@ -1,4 +1,6 @@
 class DemoController < ApplicationController
+  include Pagy::Backend
+
   # Demonstrate deferred props.
   def defer
     render inertia: "Demo/Defer", props: {
@@ -15,6 +17,16 @@ class DemoController < ApplicationController
     }
   end
 
+  # Demonstrate partial reloads.
+  def partial_reloads
+    employees = params[:active] ? Employee.active.all : Employee.all
+
+    render inertia: "Demo/PartialReloads", props: {
+      current_user: -> { FactoryBot.build(:employee) },
+      employees: -> { employees.map { |employee| serialize_employee(employee) } }
+    }
+  end
+
   # Demonstrate prefetching.
   def prefetch
     employee = Employee.find(params[:employee_id] || 1)
@@ -24,13 +36,13 @@ class DemoController < ApplicationController
     }
   end
 
-  # Demonstrate partial reloads.
-  def partial_reloads
-    employees = params[:active] ? Employee.active.all : Employee.all
+  # Demonstrate merging props.
+  def merging_props
+    pagy, records = pagy(Post.all, limit: 5)
 
-    render inertia: "Demo/PartialReloads", props: {
-      current_user: -> { FactoryBot.build(:employee) },
-      employees: -> { employees.map { |employee| serialize_employee(employee) } }
+    render inertia: "Demo/MergingProps", props: {
+      posts: InertiaRails.merge { records.as_json(only: [ :id, :title, :body ]) },
+      pagy: -> { pagy }
     }
   end
 

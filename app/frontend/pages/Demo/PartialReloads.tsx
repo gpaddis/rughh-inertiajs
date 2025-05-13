@@ -30,7 +30,7 @@ export default function PartialReloads({ current_user, employees }: PartialReloa
                     </p>
 
                     <p>
-                        Bonus: when using an Inertia link, you can preserve the scroll position using the <em>preserveScroll</em> prop.
+                        Bonus: when using an Inertia link, you can preserve the scroll position using the <em>preserveScroll</em> prop option.
                     </p>
                 </Infobox>
 
