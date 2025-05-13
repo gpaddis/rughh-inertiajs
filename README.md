@@ -31,3 +31,5 @@ bin/dev
 ```
 
 Navigate to http://localhost:3100/posts.
+
+Check out [the official Inertia.js documentation](https://inertiajs.com/) and the [inertia_rails adapter](https://inertia-rails.dev/) for more information.
