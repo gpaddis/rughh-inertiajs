@@ -1,24 +1,33 @@
-# README
+# Inertia.js + Rails Demo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A demo application showcasing Inertia.js integration with Ruby on Rails, presented at the Ruby Usergroup Hamburg on May 14th, 2025.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+This application demonstrates the Inertia.js adapter for Ruby on Rails (`inertia_rails`), using React as the frontend framework and Tailwind CSS for styling. It illustrates several key Inertia.js features:
 
-* System dependencies
+- **Form Helpers**: Simplified form handling with reduced boilerplate code.
+- **Deferred Loading**: Load certain page data after the initial page render for improved perceived performance.
+- **Load When Visible**: Lazy load data when elements become visible in the viewport.
+- **Partial Reloads**: Selectively refresh only specific parts of a page for optimized performance.
+- **Preserve Scroll**: Preserve the scroll position when reloading the data on a page.
 
-* Configuration
+## Installation
 
-* Database creation
+```bash
+# Clone the repository
+git clone https://github.com/gpaddis/rughh-inertiajs.git
+cd rughh-inertiajs
 
-* Database initialization
+# Install dependencies
+bundle install
+pnpm install
 
-* How to run the test suite
+# Set up the database
+bin/rails db:create db:migrate db:seed
 
-* Services (job queues, cache servers, search engines, etc.)
+# Start the server
+bin/dev
+```
 
-* Deployment instructions
-
-* ...
+Navigate to http://localhost:3100/posts.
