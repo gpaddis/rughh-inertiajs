@@ -27,6 +27,12 @@ export default function Navbar() {
             Partial reloads
           </Link>
         </li>
+        <li>&middot;</li>
+        <li>
+          <Link href="/demo/prefetch">
+            Prefetch
+          </Link>
+        </li>
       </ul>
     </div>
   )

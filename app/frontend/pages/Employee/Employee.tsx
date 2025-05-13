@@ -8,7 +8,7 @@ interface EmployeeProps {
 export default function Employee({ employee }: EmployeeProps) {
   return (
     <div>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center gap-5">
         <Link href={`/employees/${employee.id}`}>
           <h2 className="block font-semibold text-2xl mb-1">{employee.name?.toString()}</h2>
           <p className="my-5">{employee.role?.toString()}</p>

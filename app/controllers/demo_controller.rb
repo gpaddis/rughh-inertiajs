@@ -15,6 +15,15 @@ class DemoController < ApplicationController
     }
   end
 
+  # Demonstrate prefetching.
+  def prefetch
+    employee = Employee.find(params[:employee_id] || 1)
+
+    render inertia: "Demo/Prefetch", props: {
+      employee: -> { serialize_employee(employee) }
+    }
+  end
+
   # Demonstrate partial reloads.
   def partial_reloads
     employees = params[:active] ? Employee.active.all : Employee.all
