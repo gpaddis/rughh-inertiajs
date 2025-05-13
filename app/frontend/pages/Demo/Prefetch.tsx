@@ -11,7 +11,7 @@ interface PrefetchProps {
 export default function Prefetch({ employee }: PrefetchProps) {
     return (
         <>
-            <Head title="Our Team" />
+            <Head title="Prefetch" />
 
             <div className="mx-auto md:w-4xl lg:w-6xl w-full px-8 pt-8">
                 <div className="mx-auto pb-8 justify-center items-center w-full text-center">
